@@ -4,7 +4,7 @@ This small tool can be used from the command line to monitor ping response time
 to an arbitrary number of websites. It will capture network statistics and run
 forever.
 
-Everything gets saved into network.log which is a json file containing the
+Everything gets saved into network\_log.json which is a json file containing the
 fields (example):
 
 * "url": "http://www.google.com",
