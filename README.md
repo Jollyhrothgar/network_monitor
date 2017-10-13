@@ -5,12 +5,16 @@ to an arbitrary number of websites. It will capture network statistics and run
 forever.
 
 Everything gets saved into network.log which is a json file containing the
-fields:
+fields (example):
 
-* url (string, http://domainname.com)
-* response\_time (float, seconds, -1 if error state)
-* unixtime (when request was initiated)
-* error (null, or the network exception)
+* "url": "http://www.google.com",
+* "url\_index": 0,
+* "response\_code": 200,
+* "response\_ok": true,
+* "response\_time": 0.195535,
+* "unixtime": 1507915442,
+* "error": null,
+* "error\_message": null
 
 # Usage
 
@@ -18,3 +22,6 @@ fields:
 :~> python3 ./network\_monitor.py
 </code>
 
+# Visualization
+
+See the jupyter notebook NetworkTraffic
