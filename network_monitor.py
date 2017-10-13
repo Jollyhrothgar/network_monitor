@@ -41,7 +41,7 @@ def check_response(ping_entry):
     return {'url':url, 'url_index':index, 'response_code':resp_code, 'response_ok':resp_ok, 'response_time':resp_time, 'unixtime':int(time.time()), 'error':error, 'error_message':error_message}
 
 while True:
-    time.sleep(random.random()+1)
+    time.sleep(random.random())
 
     with multiprocessing.Pool(processes=len(_ping_list)) as pool:
         results = pool.map_async(check_response, _ping_list)
