@@ -25,6 +25,7 @@ def check_response(ping_entry):
     error_message = None
     resp_code = -1
     resp_ok = False
+    resp_str_length = -1
     resp_time = -1
 
     try:
@@ -33,12 +34,13 @@ def check_response(ping_entry):
         resp_code = res.status_code
         resp_code = res.status_code
         resp_ok = res.status_code == rq.codes.ok
+        resp_str_length = len(res.text)
 
     except Exception as e:
         error = type(e).__name__
         error_message = repr(e)
 
-    return {'url':url, 'url_index':index, 'response_code':resp_code, 'response_ok':resp_ok, 'response_time':resp_time, 'unixtime':int(time.time()), 'error':error, 'error_message':error_message}
+    return {'url':url, 'url_index':index, 'response_code':resp_code, 'response_ok':resp_ok, 'response_time':resp_time, 'unixtime':int(time.time()), 'error':error, 'error_message':error_message, 'resp_str_length':resp_str_length}
 
 while True:
     time.sleep(random.random())
