@@ -36,4 +36,4 @@ venv*
 #
 /notes
 
-*.log
+/netwok_log.json
