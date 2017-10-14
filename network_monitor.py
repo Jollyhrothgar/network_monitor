@@ -12,7 +12,6 @@ with open("./ping_list.json", "r") as f:
 
 good_requests = 0
 error_requests = 0
-network_log = []
 archive_file = 'network_data.log' # a file with a json dict per line to allow for appending without loading the whole file
 
 if os.path.exists(archive_file):
@@ -54,12 +53,11 @@ while True:
         results = pool.map_async(check_response, _ping_list)
         results.wait()
         items = results.get()
-        network_log += items
         good_requests += sum(1 if item['response_time'] > 0 else 0 for item in items)
         error_requests += sum(1 if item['response_time'] < 0 else 0 for item in items) 
 
     with open(archive_file, 'a+') as outfile:
-        for line in network_log:
+        for line in items:
             outfile.write("{}\n".format(json.dumps(line)))
 
     print("Network sample {} at {}, interval {:.2f}, good {}, bad {}".format(get_counter, dt.datetime.now() , sleep_interval, good_requests, error_requests), end='\r')
