@@ -30,3 +30,5 @@ See the jupyter notebook NetworkTraffic
 
 Add command-line customization for differnet logs - we may want to run the
 monitor different logs and then keep the data in the repo.
+
+* Logfile output redirect CLI
