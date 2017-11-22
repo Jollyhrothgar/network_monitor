@@ -4,17 +4,8 @@ This small tool can be used from the command line to monitor ping response time
 to an arbitrary number of websites. It will capture network statistics and run
 forever.
 
-Everything gets saved into network\_log.json which is a json file containing the
-fields (example):
-
-* "url": "http://www.google.com",
-* "url\_index": 0,
-* "response\_code": 200,
-* "response\_ok": true,
-* "response\_time": 0.195535,
-* "unixtime": 1507915442,
-* "error": null,
-* "error\_message": null
+All data is logged to network\_data.log. Just run the script to generate a
+few entries and investigate. The format is a json-string per line.
 
 # Usage
 
